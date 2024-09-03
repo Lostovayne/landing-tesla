@@ -1,0 +1,26 @@
+<section class="h-screen w-screen text-center bg-black relative overflow-hidden" >
+
+  <div class="z-30 relative h-full flex flex-col" >
+
+    <header class="">
+      <h2 class="text-white pt-40 text-[40px] font-medium" >Disfrute de Tesla</h2>
+      <p class="text-white text-sm">Programe una prueba de conducción hoy mismo</p>
+    </header>
+
+      <footer class="flex flex-col flex-grow justify-end pb-24">
+        <div>
+          <a class="text-white text-base border-[3px] bg-white/5 backdrop-blur-xl border-white rounded font-medium py-2.5 px-12 hover:bg-white transition-colors duration-300 hover:text-black "  href="#">Prueba de conducción</a>
+        </div>
+      </footer>
+  </div>
+
+   <!-- Video para Desktop -->
+  <div class="absolute inset-0 hidden min-[500px]:block" >
+    <video src="/video.webm" autoplay muted loop ></video>
+  </div>
+  <!-- Cambiar el video de mobile -->
+  <div class="absolute inset-0 hidden max-[500px]:block" >
+    <video class="object-cover object-center h-full" src="/video-mobile.webm" autoplay muted loop ></video>
+  </div>
+
+</section>

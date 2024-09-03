@@ -1,0 +1,36 @@
+---
+import Logo from "./Logo.astro";
+---
+
+<header class="py-6 px-10 text-white flex z-40 items-center fixed top-0 w-full justify-between" >
+  <div class="flex flex-grow basis-0" >
+    <Logo />
+  </div>
+
+  <nav class="max-[500px]:hidden" >
+    <ul class="flex text-sm [&>li>a]:text-white [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2" >
+      <li><a href="#">Model S</a></li>
+      <li><a href="#">Model 3</a></li>
+      <li><a href="#">Model X</a></li>
+      <li><a href="#">Model Y</a></li>
+      <li><a href="#">Powerwall</a></li></li>
+      <li><a href="#">Carga</a></li>
+    </ul>
+
+  </nav>
+
+
+  <nav class="flex flex-grow justify-end basis-0 max-[500px]:hidden" >
+    <ul class="flex text-sm [&>li>a]:text-white [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2" >
+      <li><a href="#">Soporte</a></li>
+      <li><a href="#">Tienda</a></li>
+      <li><a href="#">Cuenta</a></li>
+      <li><a href="#">Menú</a></li>
+    </ul>
+  </nav>
+
+  <button class="min-[500px]:hidden bg-white/5 py-2 px-4 rounded-md backdrop-blur-xl cursor-pointer" >
+    Menú
+  </button>
+
+  </header>

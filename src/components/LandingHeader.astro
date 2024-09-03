@@ -2,13 +2,13 @@
 import Logo from "./Logo.astro";
 ---
 
-<header class="py-6 px-10 text-white flex z-40 items-center fixed top-0 w-full justify-between" >
+<header id="landingHeader"class="py-6 px-10 text-white flex z-40 items-center fixed top-0 w-full justify-between" >
   <div class="flex flex-grow basis-0" >
     <Logo />
   </div>
 
   <nav class="max-[500px]:hidden" >
-    <ul class="flex text-sm [&>li>a]:text-white [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2" >
+    <ul class="flex text-sm [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:transition-colors [&>li>a]:duration-300" >
       <li><a href="#">Model S</a></li>
       <li><a href="#">Model 3</a></li>
       <li><a href="#">Model X</a></li>
@@ -21,7 +21,7 @@ import Logo from "./Logo.astro";
 
 
   <nav class="flex flex-grow justify-end basis-0 max-[500px]:hidden" >
-    <ul class="flex text-sm [&>li>a]:text-white [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2" >
+    <ul class="flex text-sm [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2 [&>li>a]:transition-colors [&>li>a]:duration-300 " >
       <li><a href="#">Soporte</a></li>
       <li><a href="#">Tienda</a></li>
       <li><a href="#">Cuenta</a></li>
@@ -29,8 +29,42 @@ import Logo from "./Logo.astro";
     </ul>
   </nav>
 
-  <button class="min-[500px]:hidden bg-white/5 py-2 px-4 rounded-md backdrop-blur-xl cursor-pointer" >
+  <button class="min-[500px]:hidden text-current bg-white/5 py-2 px-4 rounded-md backdrop-blur-xl cursor-pointer [&>li>a]:transition-colors [&>li>a]:duration-300" >
     Menú
   </button>
 
   </header>
+
+  <!-- Implementando intersection observer -->
+  <script>
+
+const $header= document.getElementById('landingHeader') as HTMLElement
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px', // en cuanto comienza a aparecer
+      threshold: 0.90 // el porcentaje de visibilidad
+
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      // entries.forEach((entry) => {
+      //   if (entry.isIntersecting) {
+      //     entry.target.classList.add('animate-fadeIn')
+      //   }
+      // })
+      entries.forEach((entry) => {
+        const { isIntersecting } = entry
+        if (isIntersecting) {
+          const color =  entry.target.getAttribute('data-header-color') as string
+          $header.style.color = color
+        }
+
+      })
+
+    }, observerOptions)
+
+    const $sections = document.querySelectorAll('.landing-section')
+    $sections.forEach((section) => observer.observe(section))
+
+  </script>

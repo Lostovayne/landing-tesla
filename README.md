@@ -1,5 +1,10 @@
 # Astro Starter Kit: Basics
 
+
+## 🚀 Getting Started
+
+Al usar Astro con bun para desplegar en cloudflare se necesita usar el bun install --frozen-lockfile
+
 ```sh
 npm create astro@latest -- --template basics
 ```

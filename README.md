@@ -3,7 +3,7 @@
 
 ## 🚀 Getting Started
 
-Al usar Astro con bun para desplegar en cloudflare se necesita usar el bun install --frozen-lockfile
+Al usar npm en Cloudflare , necesario agregar npm install && npm run build y tener actualizado el package.json cpn npm install  
 
 ```sh
 npm create astro@latest -- --template basics

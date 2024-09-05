@@ -33,12 +33,47 @@ import Logo from "./Logo.astro";
     Menú
   </button>
 
+  <div
+  id="menu-backdrop"
+  class="absolute bg-black/5 backdrop-blur-lg rounded translate-x-[var(--left)] translate-y-[var(--top)] left-0 top-0  w-[var(--width)] h-[var(--height)] transition-all duration-500 ease-in-out  opacity-0 -z-10"
+  >
+
+  </div>
+
   </header>
+
+  <!-- Menu movimientos -->
+  <script>
+    const listItem = document.querySelectorAll('#landingHeader li')
+    const menuBackdrop = document.querySelector('#menu-backdrop') as HTMLElement
+
+    listItem.forEach((item) => {
+      
+      item.addEventListener('mouseenter', ({target}) => { 
+
+        const { left , top, width, height } = (target as HTMLElement).getBoundingClientRect()
+        menuBackdrop.style.setProperty('--left', `${left}px`)
+        menuBackdrop.style.setProperty('--top', `${top}px`)
+        menuBackdrop.style.setProperty("--width", `${width}px`)
+        menuBackdrop.style.setProperty("--height", `${height}px`) 
+        menuBackdrop.style.opacity = '1'
+        menuBackdrop.style.visibility = 'visible'
+      })
+
+      item.addEventListener('mouseleave', () => {
+        menuBackdrop.style.opacity = '0'
+        menuBackdrop.style.visibility = 'hidden'
+      })
+
+
+    })
+
+  </script>
 
   <!-- Implementando intersection observer -->
   <script>
 
-const $header= document.getElementById('landingHeader') as HTMLElement
+    const $header= document.getElementById('landingHeader') as HTMLElement
 
     const observerOptions = {
       root: null,
